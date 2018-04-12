@@ -16,8 +16,6 @@ services:
             - upsource_conf:/opt/upsource/conf
             - upsource_logs:/opt/upsource/logs
             - upsource_backups:/opt/upsource/backups
-        ports:
-            - 8080:8080
 
     nginx:
         image: nginx
