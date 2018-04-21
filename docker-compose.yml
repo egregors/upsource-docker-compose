@@ -1,21 +1,15 @@
 version: '2'
 
-volumes:
-    upsource_data: {}
-    upsource_conf: {}
-    upsource_logs: {}
-    upsource_backups: {}
-
 services:
     upsource:
         image: jetbrains/upsource:2017.3.2888
         container_name: upsource
         restart: always
         volumes:
-            - upsource_data:/opt/upsource/data
-            - upsource_conf:/opt/upsource/conf
-            - upsource_logs:/opt/upsource/logs
-            - upsource_backups:/opt/upsource/backups
+            - /opt/upsource/data:/opt/upsource/data
+            - /opt/upsource/conf:/opt/upsource/conf
+            - /opt/upsource/logs:/opt/upsource/logs
+            - /opt/upsource/backups:/opt/upsource/backups
 
     nginx:
         image: nginx

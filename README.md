@@ -15,6 +15,17 @@ git clone https://github.com/Egregors/upsource-docker-compose.git
 
 ## Configuration
 
+### Create and Configure UpSource-specific Directories
+
+They must be accessible to the user account that is used to run UpSource service inside the container. 
+UpSource uses the non-root account 13001:13001 (group:id, respectively).
+```
+mkdir -p -m 750 /opt/upsource/data /opt/upsource/logs /opt/upsource/conf /opt/upsource/backups
+chown -R 13001:13001 /opt/upsource/data /opt/upsource/logs /opt/upsource/conf /opt/upsource/backups
+```
+
+### SSL 
+
 HTTPs support is ON, by default. All you need is just set your domain name and email variables in `env.example` 
 and rename env.example` to `.env`
 
